@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/wealthli/public_html/public/
+    - /bin/cp -R * $DEPLOYPATH
