@@ -19,15 +19,10 @@ let myswiper = new Swiper('.swiper1', {
     speed: 1000,
     loop: true,
     navigation: {
-        nextEl: '.swiper-header-right',
-        prevEl: '.swiper-header-left',
+        nextEl: '#hero-next',
+        prevEl: '#hero-prev',
     },
-    pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true
-    },
-    // keyboard: {
+        // keyboard: {
     //     enabled: true,
     //     onlyInViewport: true,
     // }
@@ -40,6 +35,42 @@ $(document).ready(function(){
             $('.header').removeClass('sticky_header');
         } else {
             $('.header').addClass('sticky_header');
+        }
+    });
+    
+    // Force hamburger menu to stay closed on page load
+    $('#headernav').removeClass('show').addClass('collapse').css('display', 'none');
+    
+    // Hamburger menu toggle functionality - prevent all Bootstrap interference
+    $('.navbar-toggler').off('click').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        
+        // Toggle menu visibility manually
+        if ($('#headernav').hasClass('show')) {
+            $('#headernav').removeClass('show').css('display', 'none');
+        } else {
+            $('#headernav').addClass('show').css('display', 'block');
+        }
+        
+        return false;
+    });
+    
+    // Prevent Bootstrap collapse from interfering
+    $('#headernav').off('show.bs.collapse').off('hide.bs.collapse');
+    
+    // Close menu when clicking outside (but not on hamburger)
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.navbar').length && !$(e.target).hasClass('navbar-toggler')) {
+            $('#headernav').removeClass('show').css('display', 'none');
+        }
+    });
+    
+    // Ensure menu stays closed on window resize
+    $(window).on('resize', function() {
+        if ($(window).width() > 767) {
+            $('#headernav').removeClass('show').css('display', 'none');
         }
     });
 })
