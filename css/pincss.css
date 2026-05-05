@@ -1,0 +1,185 @@
+
+
+
+
+
+
+ /* Dropdown Button */
+.dropbtn {
+ background:none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: ##1572e8;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 250px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  text-align:center;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;} 
+.nav-reg{background-color: ##1572e8;margin-left:10px;
+border-radius: 5px;height:50px;margin-top:20px;padding:05px 10px 10px 10px;}
+.nav-reg a,.nav-log a{color: rgba(255, 255, 255, 0.85);
+
+transition: all .3s ease-in-out;font-family: "Montserrat", sans-serif;
+font-weight: 600;
+font-size: 1.3rem;}
+
+
+
+.navigation__nav .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+.navigation__nav .dropdown-container {
+  display: none;
+  
+  padding-left: 8px;
+  background-color: #262626;
+  text-align:center;
+}
+
+.navigation__nav .dropdown-container a{
+  padding: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+#second-holder{margin-top:-100px;}
+#card-1{
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.25);
+border-top: 4px solid ##1572e8;
+border-radius: 5px;
+max-width:31%;background:#FFF;
+}
+
+.mt50 .mb100{max-width:31%;}
+.mt50 .mb100:nth-child(2),.mt50 .mb100:nth-child(3){ margin-left:20px;}
+
+#card-1:nth-child(2),#card-1:nth-child(3){
+   margin-left:20px;
+}
+
+#mb80{
+   margin-top:-5rem; position:relative;z-index:1;
+}
+
+#swiper_banner #swiper__body-2{padding-top:50px;}
+
+.nav-log{border:solid 1px ##1572e8;border-radius: 5px;height:50px;margin-top:20px;padding:05px 10px 10px 10px;}
+.nav-log a{color:##1572e8;}
+
+@media only screen and (max-width: 768px) {
+  #section  #swiper_banner{height:auto;}
+   #section #swiper_banner #swiper__body-2{padding-top:150px;padding-bottom:80px;}
+   #card-1{
+    
+max-width:80%;
+}
+.mt50 .mb100{max-width:100%;}
+.service-intro{font-size:20px;}
+
+.mt50 .mb100:nth-child(2),.mt50 .mb100:nth-child(3){
+   margin-left:0px;
+}
+#card-1:nth-child(2),#card-1:nth-child(3){
+   margin-left:0px;margin-top:20px;
+}
+#second-holder{margin-top:-50px;}
+
+    
+    .last{width:100px;}
+}
+.last{width:100px;}
+#ulpin li a{color:rgba(61, 61, 61, 0.69);}
+    .preloader {
+   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #D3D3D3;
+  z-index: 9999;
+  /* Add this */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plogo {
+ animation: bounce 3s infinite;
+/* animation: spin 2s linear infinite;for bouncing*/
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+    }
+    
+   /* @keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+*/

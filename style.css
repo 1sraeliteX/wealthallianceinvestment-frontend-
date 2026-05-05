@@ -1,0 +1,126 @@
+.navbar-brand.logo {
+    margin-top: 10px !important;
+}
+
+/* Make logo bigger and bolder - always visible */
+.navbar-brand.logo img {
+    width: 400px !important;
+    height: auto !important;
+    font-weight: bold !important;
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3)) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Static logo display - no switching */
+.navbar-brand .first,
+.navbar-brand .last {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Hide the first logo to avoid duplication */
+.navbar-brand .first {
+    display: none !important;
+}
+
+.navbar-brand .last {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Language translator styling */
+#google_translate_element {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#google_translate_element .goog-te-gadget {
+    font-size: 12px !important;
+}
+
+#google_translate_element .goog-te-gadget-simple {
+    background: transparent !important;
+    border: none !important;
+}
+
+#google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
+    color: #000 !important;
+}
+
+/* Hide Google attribution */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+body {
+    top: 0px !important;
+}
+
+/* Remove default margins and padding */
+body, html {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Extend navbar to 250px total height */
+.header {
+    min-height: 80px !important;
+}
+
+.header:not(.sticky_header) {
+    min-height: 80px !important;
+}
+
+.header .nav-item .nav-link {
+    padding: 6.5rem 0 !important;
+    color: #000000 !important;
+}
+
+.header:not(.sticky_header) .nav-item .nav-link {
+    padding: 6.5rem 0 !important;
+    color: #000000 !important;
+}
+
+/* Navigation buttons text color */
+.nav-log a {
+    color: #000000 !important;
+}
+
+.nav-reg a {
+    color: #000000 !important;
+}
+
+/* Static logo for all screen sizes */
+@media (min-width: 992px) {
+    .navbar-brand .first {
+        display: none !important;
+    }
+    
+    .navbar-brand .last {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar-brand .first {
+        display: none !important;
+    }
+    
+    .navbar-brand .last {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
