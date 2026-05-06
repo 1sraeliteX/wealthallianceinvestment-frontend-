@@ -38,41 +38,72 @@ $(document).ready(function(){
         }
     });
     
-    // Force hamburger menu to stay closed on page load
-    $('#headernav').removeClass('show').addClass('collapse').css('display', 'none');
+    // Responsive Hamburger Menu Functionality
+    const $navbar = $('#main-navbar');
+    const $toggle = $('#hamburger-toggle');
+    const $navMenu = $('#headernav');
     
-    // Hamburger menu toggle functionality - prevent all Bootstrap interference
-    $('.navbar-toggler').off('click').on('click', function(e) {
+    // Initialize menu state
+    function initMenuState() {
+        const isMobile = $(window).width() <= 767;
+        if (!isMobile) {
+            $navbar.removeClass('nav-open');
+            $toggle.attr('aria-expanded', 'false');
+        }
+    }
+    
+    // Toggle menu function
+    function toggleMenu() {
+        const isOpen = $navbar.hasClass('nav-open');
+        
+        if (isOpen) {
+            // Close menu
+            $navbar.removeClass('nav-open');
+            $toggle.attr('aria-expanded', 'false');
+        } else {
+            // Open menu
+            $navbar.addClass('nav-open');
+            $toggle.attr('aria-expanded', 'true');
+        }
+    }
+    
+    // Close menu function
+    function closeMenu() {
+        $navbar.removeClass('nav-open');
+        $toggle.attr('aria-expanded', 'false');
+    }
+    
+    // Hamburger toggle click handler
+    $toggle.on('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        e.stopImmediatePropagation();
-        
-        // Toggle menu visibility manually
-        if ($('#headernav').hasClass('show')) {
-            $('#headernav').removeClass('show').css('display', 'none');
-        } else {
-            $('#headernav').addClass('show').css('display', 'block');
-        }
-        
-        return false;
+        toggleMenu();
     });
     
-    // Prevent Bootstrap collapse from interfering
-    $('#headernav').off('show.bs.collapse').off('hide.bs.collapse');
+    // Close menu when clicking on nav links
+    $('.nav-link, .dropbtn').on('click', function() {
+        if ($(window).width() <= 767) {
+            closeMenu();
+        }
+    });
     
-    // Close menu when clicking outside (but not on hamburger)
+    // Close menu when clicking outside
     $(document).on('click', function(e) {
-        if (!$(e.target).closest('.navbar').length && !$(e.target).hasClass('navbar-toggler')) {
-            $('#headernav').removeClass('show').css('display', 'none');
+        if ($(window).width() <= 767) {
+            const $target = $(e.target);
+            if (!$target.closest('.navbar').length && !$target.hasClass('navbar-toggler')) {
+                closeMenu();
+            }
         }
     });
     
-    // Ensure menu stays closed on window resize
+    // Handle window resize
     $(window).on('resize', function() {
-        if ($(window).width() > 767) {
-            $('#headernav').removeClass('show').css('display', 'none');
-        }
+        initMenuState();
     });
+    
+    // Initialize on page load
+    initMenuState();
 })
 
 $(function(){

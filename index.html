@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from wealthallianceinvestment.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Apr 2026 19:33:43 GMT -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
@@ -16,7 +15,7 @@
 <meta property="og:image" content="assets/images/link.jpg" />
 
 
-<link rel="icon" type="image/svg+xml" sizes="20x20" href="images/wealthalliancewhite (1).svg">
+<link rel="icon" type="image/svg+xml" sizes="20x20" href="images/wealthalliancewhite.svg">
 <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
 <meta name="generator" content="Wealthallianceinvestment company developer">
 <meta name="revisit-after" content="1 days">
@@ -45,7 +44,6 @@
 </head>
 <body>
 <div class="preloader">
-  <img src="images/wealthalliancelogoblack.svg" alt="logo" class="plogo" width=40 height=40>
 </div>
 
 <style>
@@ -57,6 +55,7 @@
 
 .nav-item {
     position: relative;
+    z-index: 9999;
 }
 
 .nav-link {
@@ -90,11 +89,22 @@
     background-color: #fff;
     min-width: 200px;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 1000;
+    z-index: 99999;
     border: 1px solid #ddd;
     border-radius: 4px;
     top: 100%;
     left: 0;
+}
+
+/* Ensure hero section stays below dropdown */
+#section {
+    position: relative;
+    z-index: 1;
+}
+
+.swiper-container {
+    position: relative;
+    z-index: 1;
 }
 
 .dropdown-content a {
@@ -133,10 +143,12 @@
     
     .navbar-expand-md .navbar-collapse {
         display: none !important;
+        visibility: hidden !important;
     }
     
     .navbar-expand-md .navbar-collapse.show {
         display: block !important;
+        visibility: visible !important;
     }
     
     .navbar-expand-md .navbar-nav {
@@ -174,8 +186,11 @@
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    position: relative !important;
-    z-index: 1000 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9998 !important;
     min-height: 60px !important;
     max-height: 80px !important;
 }
@@ -231,10 +246,12 @@
     /* Ensure navbar collapse is hidden by default on mobile */
     .header.navbar .navbar-collapse {
         display: none !important;
+        visibility: hidden !important;
     }
     
     .header.navbar .navbar-collapse.show {
         display: block !important;
+        visibility: visible !important;
         position: absolute !important;
         top: 100% !important;
         left: 0 !important;
@@ -275,10 +292,12 @@
     /* Hide desktop navigation on mobile */
     .header.navbar .navbar-collapse {
         display: none !important;
+        visibility: hidden !important;
     }
     
     .header.navbar .navbar-collapse.show {
         display: block !important;
+        visibility: visible !important;
         position: absolute !important;
         top: 100% !important;
         left: 0 !important;
@@ -302,6 +321,8 @@
         border-bottom: 1px solid #eeeeee !important;
         text-align: left !important;
         overflow: hidden !important;
+        position: relative !important;
+        width: 100% !important;
     }
     
     .header.navbar .navbar-nav .nav-item:last-child {
@@ -318,6 +339,9 @@
         background: #ffffff !important;
         margin: 0 !important;
         box-sizing: border-box !important;
+        border: none !important;
+        outline: none !important;
+        position: relative !important;
     }
     
     .header.navbar .navbar-nav .nav-link:hover {
@@ -551,16 +575,23 @@
 </style>
 
 
-<header class="header navbar fixed-top navbar-expand-md">
+<header class="header navbar fixed-top navbar-expand-md" id="main-navbar">
 <div class="container">
 <a class="navbar-brand logo" href="index.html">
-<img src="images/wealthalliancelogoblack.svg" class="first" alt="wealthallianceinvestment" width="200">
+<img src="images/icon01.svg" class="hide first" alt="wealthallianceinvestment" width="150" data-component-name="<img />">
 </a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headernav" aria-expanded="false" aria-label="Toggle navigation">
-<span class="lnr lnr-text-align-right"></span>
+<button class="navbar-toggler" type="button" id="hamburger-toggle" 
+        aria-expanded="false" 
+        aria-controls="headernav" 
+        aria-label="Toggle navigation menu">
+    <span class="hamburger-icon">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </span>
 </button>
-<div class="collapse navbar-collapse flex-sm-row-reverse" id="headernav">
-<ul class=" nav navbar-nav menu">
+<div class="navbar-collapse" id="headernav">
+<ul class="nav navbar-nav menu">
 <li class="nav-item">
 <a class="nav-link" href="index.html" id="active">Home</a>
 </li>
@@ -664,11 +695,11 @@ window.onclick = function(event) {
 <div class="swiper-container swiper1" id="swiper_banner">
 <div class="swiper-wrapper swiper">
 
-<div class="swiper-slide swiper__bg" id="hero-slide">
+<div class="swiper-slide swiper__bg" id="hero-slide" style="background-image: url('images/office1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-hero">
-<div class="swiper__body--text text-center" >
+<div class="swiper__body--text text-center">
 <div>
 <h3 class="wel-h3 text-center coloured" id="wel-h3-hero">Welcome to Wealth Alliance</h3>
 </div>
@@ -744,7 +775,7 @@ window.onclick = function(event) {
 </div>
 </div>
 
-<div class="swiper-slide swiper__bg" id="crypto-slide">
+<div class="swiper-slide swiper__bg" id="crypto-slide" style="background-image: url(images/bg-crypto.jpg);">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-crypto">
@@ -763,7 +794,7 @@ window.onclick = function(event) {
 </div>
 </div>
 
-<div class="swiper-slide swiper__bg" id="estate-slide">
+<div class="swiper-slide swiper__bg" id="estate-slide" style="background-image: url(images/estate.jpg);">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-estate">
@@ -782,7 +813,7 @@ window.onclick = function(event) {
 </div>
 </div>
 
-<div class="swiper-slide swiper__bg" id="gold-slide">
+<div class="swiper-slide swiper__bg" id="gold-slide" style="background-image: url(images/gold.jpg);">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-gold">
@@ -801,7 +832,7 @@ window.onclick = function(event) {
 </div>
 </div>
 
-<div class="swiper-slide swiper__bg" id="cannabis-slide">
+<div class="swiper-slide swiper__bg" id="cannabis-slide" style="background-image: url(images/canniabis.jpg);">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-cannabis">
@@ -820,7 +851,7 @@ window.onclick = function(event) {
 </div>
 </div>
 
-<div class="swiper-slide swiper__bg" id="loan-slide">
+<div class="swiper-slide swiper__bg" id="loan-slide" style="background-image: url(images/fund.jpg);">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-loan">
@@ -839,7 +870,7 @@ window.onclick = function(event) {
 </div>
 </div>
 
-<div class="swiper-slide swiper__bg" id="agric-slide">
+<div class="swiper-slide swiper__bg" id="agric-slide" style="background-image: url(images/agric.jpg);">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-agric">
@@ -858,7 +889,7 @@ window.onclick = function(event) {
 </div>
 </div>
 
-<div class="swiper-slide swiper__bg" id="energy-slide">
+<div class="swiper-slide swiper__bg" id="energy-slide" style="background-image: url(images/energy.jpg);">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-energy">
@@ -877,7 +908,7 @@ window.onclick = function(event) {
 </div>
 </div>
 
-<div class="swiper-slide swiper__bg" id="landlord-slide">
+<div class="swiper-slide swiper__bg" id="landlord-slide" style="background-image: url(images/landlord.jpg);">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-landlord">
@@ -896,7 +927,7 @@ window.onclick = function(event) {
 </div>
 </div>
 
-<div class="swiper-slide swiper__bg" id="fund-slide">
+<div class="swiper-slide swiper__bg" id="fund-slide" style="background-image: url(images/asset recovery.jpg);">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-fund">
@@ -915,7 +946,7 @@ window.onclick = function(event) {
 </div>
 </div>
 
-<div class="swiper-slide swiper__bg" id="car-slide">
+<div class="swiper-slide swiper__bg" id="car-slide" style="background-image: url(images/vehicle.jpg);">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-car">
@@ -934,7 +965,7 @@ window.onclick = function(event) {
 </div>
 </div>
 
-<div class="swiper-slide swiper__bg" id="real-slide">
+<div class="swiper-slide swiper__bg" id="real-slide" style="background-image: url(images/trading.jpg);">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-real">
@@ -954,7 +985,7 @@ window.onclick = function(event) {
 </div>
 
 
-<div class="swiper-slide swiper__bg" id="stock-slide">
+<div class="swiper-slide swiper__bg" id="stock-slide" style="background-image: url(images/stocksandetf.jpg);">
 <div class="bg-darken enhance"></div>
 <div class="swiper__cont hundper">
 <div class="swiper__body" id="swiper__body-stock">
@@ -962,15 +993,24 @@ window.onclick = function(event) {
 <div>
 <h3 class="wel-h3 text-center coloured">Stock Trading</h3>
 </div>
-<h2 style=" color: #ffffff;  margin-bottom: 0;  font-family: "Montserrat", sans-serif;  text-transform: uppercase;  text-align: center;">Stock & ETFs</h2>
-<p>Trade stocks and exchange-traded funds</p>
-<p>Access global markets with professional guidance</p>
+<h2 style=" color: #ffffff;  margin-bottom: 0;  font-family: "Montserrat", sans-serif;  text-transform: uppercase;  text-align: center;">Market Investment</h2>
+<p>Trade stocks and ETFs with professional guidance</p>
+<p>Access global markets with expert analysis</p>
 <div>
 <a class="btn__normal roll--text coloured mt15" data-text="Trade Stocks" href="https://wealthallianceinvestments.com/register">Trade Stocks</a>
 </div>
 </div>
 </div>
 </div>
+</div>
+</div>
+
+<!-- Navigation Arrows -->
+<div class="hero-nav-arrow hero-nav-prev" id="hero-prev">
+    <i class="fa fa-chevron-left"></i>
+</div>
+<div class="hero-nav-arrow hero-nav-next" id="hero-next">
+    <i class="fa fa-chevron-right"></i>
 </div>
 
 <div class="swiper-slide swiper__bg" id="about-slide">
@@ -1008,9 +1048,6 @@ window.onclick = function(event) {
 </div>
 </div>
 </div>
-<!-- Add custom navigation arrows -->
-<div class="hero-nav-arrow prev" id="hero-prev"></div>
-<div class="hero-nav-arrow next" id="hero-next"></div>
 
 </div>
 </section>
@@ -2302,7 +2339,6 @@ background-repeat: no-repeat;">
 <div class="row align-items-center">
 <div class="col-lg-6">
 <div class="footer__logo widthper text-center text-left-md">
-<img src="images/wealthalliancelogoblack.svg" alt="">
 </div>
 </div>
 <div class="col-lg-6 text-center text-right-md">
@@ -2348,7 +2384,6 @@ function googleTranslateElementInit() {
 
 
 
-<!-- Mirrored from wealthallianceinvestment.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Apr 2026 19:35:13 GMT -->
 </html>
          <!--Start of Tawk.to Script-->
 <script type="text/javascript">
@@ -2428,8 +2463,19 @@ window.smartsupp||(function(d) {
   c.src='../www.smartsuppchat.com/loaderd41d.js?';s.parentNode.insertBefore(c,s);
 })(document);
 </script>
-<noscript> Powered by <a href=%e2%80%9chttps_/www.smartsupp.html target=“_blank”>Smartsupp</a></noscript>
+<noscript> Powered by <a href=%e2%80%9chttps_/www.smartsupp.html target=“_blank">Smartsupp</a></noscript>
 </body>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/447436912525" 
+   class="whatsapp-fab" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Chat with us on WhatsApp">
+   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.024 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 9.885-5.335 9.885-11.893a11.842 11.842 0 00-3.48-8.413Z"/>
+   </svg>
+</a>
 
 <!-- Language Translator - Bottom Left -->
 <div class="translator-bottom-left">

@@ -1,24 +1,147 @@
 .navbar-brand.logo {
-    margin-top: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    margin: 0 !important;
 }
 
-/* Make logo bigger and bolder - always visible */
+/* Make logo responsive - prevent overflow */
 .navbar-brand.logo img {
-    width: 400px !important;
+    max-width: 180px !important;
     height: auto !important;
     font-weight: bold !important;
     filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3)) !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    transition: all 0.3s ease !important;
 }
 
-/* Static logo display - no switching */
-.navbar-brand .first,
-.navbar-brand .last {
-    display: block !important;
+/* Solid navbar background - Always sticky while scrolling */
+.header.navbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e7e7e7;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1030 !important;
+    min-height: 70px !important;
+    max-height: 90px !important;
+    width: 100% !important;
+    transition: all 0.3s ease !important;
+    align-items: center !important;
+    overflow: hidden !important;
+}
+
+/* Ensure navbar stays sticky on scroll */
+.navbar.fixed-top {
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 1030 !important;
+}
+
+/* Add body padding to prevent content from hiding under fixed navbar */
+body {
+    padding-top: 90px !important;
+    top: 0px !important;
+}
+
+/* Hero Navigation Arrows */
+.hero-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-nav-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-nav-arrow i {
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.hero-nav-arrow:hover i {
+    color: #1572e8;
+}
+
+.hero-nav-prev {
+    left: 20px;
+}
+
+.hero-nav-next {
+    right: 20px;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .hero-nav-arrow {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hero-nav-arrow i {
+        font-size: 14px;
+    }
+    
+    .hero-nav-prev {
+        left: 10px;
+    }
+    
+    .hero-nav-next {
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-nav-arrow {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .hero-nav-arrow i {
+        font-size: 12px;
+    }
+    
+    .hero-nav-prev {
+        left: 5px;
+    }
+    
+    .hero-nav-next {
+        right: 5px;
+    }
+}
+
+/* Ensure all navbar variants are sticky */
+header.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 1030 !important;
 }
 
 /* Hide the first logo to avoid duplication */
@@ -62,23 +185,21 @@
     display: none !important;
 }
 
-body {
-    top: 0px !important;
-}
-
 /* Remove default margins and padding */
 body, html {
     margin: 0 !important;
     padding: 0 !important;
 }
 
-/* Extend navbar to 250px total height */
+/* Extend navbar to proper height */
 .header {
-    min-height: 80px !important;
+    min-height: 70px !important;
+    max-height: 90px !important;
 }
 
 .header:not(.sticky_header) {
-    min-height: 80px !important;
+    min-height: 70px !important;
+    max-height: 90px !important;
 }
 
 .header .nav-item .nav-link {
@@ -91,13 +212,17 @@ body, html {
     color: #000000 !important;
 }
 
-/* Navigation buttons text color */
+/* Navigation buttons text color and sizing */
 .nav-log a {
     color: #000000 !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
 }
 
 .nav-reg a {
     color: #000000 !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
 }
 
 /* Static logo for all screen sizes */
@@ -122,5 +247,327 @@ body, html {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+    }
+}
+
+/* Responsive Hamburger Menu */
+.navbar-toggler {
+    display: none;
+    background: transparent;
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(21, 114, 232, 0.3);
+}
+
+.navbar-toggler:hover {
+    border-color: #1572e8;
+    background-color: rgba(21, 114, 232, 0.05);
+}
+
+.hamburger-icon {
+    display: block;
+    width: 24px;
+    height: 18px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: 0.3s ease-in-out;
+}
+
+.hamburger-line {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #333;
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+}
+
+.hamburger-line:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger-line:nth-child(2) {
+    top: 8px;
+}
+
+.hamburger-line:nth-child(3) {
+    top: 16px;
+}
+
+/* Hamburger animation to X */
+.navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    top: 8px;
+    transform: rotate(135deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+.navbar-toggler[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    top: 8px;
+    transform: rotate(-135deg);
+}
+
+/* Mobile navbar styles */
+@media (max-width: 767px) {
+    .navbar-toggler {
+        display: block;
+    }
+    
+    #headernav {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border: 1px solid #e7e7e7;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+    
+    #main-navbar.nav-open #headernav {
+        max-height: 500px;
+        overflow-y: auto;
+    }
+    
+    .navbar-nav.menu {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .nav-item {
+        width: 100%;
+        border-bottom: 1px solid #eeeeee;
+        margin: 0;
+    }
+    
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 15px 20px;
+        font-size: 16px;
+        color: #333333;
+        text-align: left;
+        width: 100%;
+        min-height: 44px;
+        line-height: 1.4;
+        transition: background-color 0.2s ease;
+        text-decoration: none;
+    }
+    
+    .nav-link:hover {
+        background-color: #f8f9fa;
+        color: #1572e8;
+    }
+    
+    /* Dropdown styling for mobile */
+    .dropdown {
+        width: 100%;
+    }
+    
+    .dropbtn {
+        width: 100%;
+        text-align: left;
+        padding: 15px 20px;
+        font-size: 16px;
+        color: #333333;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        min-height: 44px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background-color: #f8f9fa;
+        width: 100%;
+        border-radius: 0;
+        display: none;
+    }
+    
+    .dropdown-content.show {
+        display: block;
+    }
+    
+    .dropdown-content a {
+        padding: 12px 25px;
+        border-bottom: 1px solid #eeeeee;
+        color: #333333;
+        font-size: 14px;
+        background: #ffffff;
+        text-align: left;
+        display: block;
+        width: 100%;
+        min-height: 44px;
+        line-height: 1.4;
+        text-decoration: none;
+    }
+    
+    .dropdown-content a:hover {
+        background-color: #e9ecef;
+        color: #1572e8;
+    }
+}
+
+/* Desktop styles - ensure hamburger is hidden */
+@media (min-width: 768px) {
+    .navbar-toggler {
+        display: none;
+    }
+    
+    #headernav {
+        display: flex !important;
+        max-height: none !important;
+        position: static !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    .navbar-nav.menu {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .nav-item {
+        width: auto;
+        border-bottom: none;
+        margin: 0 5px;
+    }
+    
+    .nav-link {
+        padding: 8px 12px;
+        font-size: 14px;
+        min-height: auto;
+        white-space: nowrap;
+    }
+}
+
+
+/* WhatsApp FAB Styling */
+.whatsapp-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.whatsapp-fab:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    text-decoration: none;
+    color: white;
+}
+
+.whatsapp-fab:active {
+    transform: scale(0.95);
+}
+
+.whatsapp-fab svg {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-fab:hover svg {
+    transform: rotate(15deg);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .whatsapp-fab {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .whatsapp-fab svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    /* Responsive navbar for mobile */
+    .header.navbar {
+        min-height: 60px !important;
+        max-height: 80px !important;
+    }
+    
+    .navbar-brand.logo img {
+        max-width: 140px !important;
+    }
+    
+    body {
+        padding-top: 70px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-fab {
+        width: 45px;
+        height: 45px;
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .whatsapp-fab svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* Extra small mobile */
+    .header.navbar {
+        min-height: 55px !important;
+        max-height: 75px !important;
+    }
+    
+    .navbar-brand.logo img {
+        max-width: 120px !important;
+    }
+    
+    body {
+        padding-top: 65px !important;
     }
 }

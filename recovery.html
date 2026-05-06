@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from wealthallianceinvestment.com/recovery.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Apr 2026 19:37:16 GMT -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
 <meta charset="UTF-8">
@@ -51,56 +50,7 @@
 <style>
 
 </style>
-<div class="navigation">
-<input type="checkbox" class="navigation__checkbox" id="navi-toggle">
-<label for="navi-toggle" class="navigation__button">
-<span class="navigation__icon">&nbsp;</span>
-</label>
-<div class="navigation__bg">&nbsp;</div>
-<nav class="navigation__nav">
-<ul class="navigation__list">
-<li class="navigation__item">
-<a href="index.html" class="navigation__link" id="active">Home</a>
-</li>
-<li class="navigation__item">
-<a href="about.html" class="navigation__link">About Us</a>
-</li>
-
-<li class="navigation__item">
-<button class="dropdown-btn">Services 
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-     <a href="estate.html">Real Estate</a>
-    <a href="gold.html">Gold Commodities</a>
-    <a href="crypto.html">Crypto Currency</a>
-    <a href="cannabis.html">Cannabis</a>
-    <a href="stock.html">Stock and EFTs</a>
-    <a href="agriculture.html">Agriculture</a>
-    <a href="loan.html">Loan Offers</a>
-    <a href="landlord.html">Landlord Properties</a>
-    <a href="insurance.html">Car Insurance Company & Benz investment</a>
-     <a href="recovery.html">Fund Recovery</a>
-      <a href="cards.html">Gift Card & Amazon Card Investment</a>
-       <a href="bbank.html">Big Bank Energy Investment</a>
-  </div>
-</li>
-
-<li class="navigation__item">
-<a href="contact.html" class="navigation__link">Contact Us</a>
-</li>
-<li class="navigation__item">
-<a href="faqs.html" class="navigation__link">FAQs</a>
-</li>
-<li class="navigation__item">
-<a href="https://wealthallianceinvestments.com/login" class="navigation__link">Log in</a>
-</li>
-<li class="navigation__item">
-<a href="https://wealthallianceinvestments.com/register" class="navigation__link">Register</a>
-</li>
-</ul>
-</nav>
-</div>
+<!-- Custom mobile navigation removed to prevent duplicate menus -->
 <div class="logo-resp">
 <div class="logo__img">
 <img src="images/prime.png" class="last" alt="Trade" width="220">
@@ -109,13 +59,13 @@
 <header class="header navbar fixed-top navbar-expand-lg">
 <div class="container">
 <a class="navbar-brand logo" href="index.html">
-<img src="images/3.svg" class="hide first" alt="wealthallianceinvestment" width=150>
+<img src="images/icon01.svg" class="hide first" alt="wealthallianceinvestment" width=150>
 <img src="images/prime.png" class="last" width= alt="wealthallianceinvestment" style="width:150px" />
 </a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headernav" aria-expanded="false" aria-label="Toggle navigation">
+<button class="navbar-toggler" type="button" id="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
 <span class="lnr lnr-text-align-right"></span>
 </button>
-<div class="collapse navbar-collapse flex-sm-row-reverse" id="headernav">
+<div class="navbar-collapse flex-sm-row-reverse" id="headernav">
 <ul class=" nav navbar-nav menu">
 <li class="nav-item">
 <a class="nav-link" href="index.html" id="active">Home</a>
@@ -162,14 +112,34 @@
 <!--// translator-->
 
 <script type="text/javascript">
-}
+
 </script>
 
 
 </header>
 
 <script>
+// Mobile menu toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const headernav = document.getElementById('headernav');
     
+    if (mobileMenuToggle && headernav) {
+        mobileMenuToggle.addEventListener('click', function() {
+            headernav.classList.toggle('show');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!headernav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                headernav.classList.remove('show');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+});
 </script><title>Fund Recovery| wealthallianceinvestment investment firm </title>
 <link rel="stylesheet" type="text/css" href="stylesheet/about.css">
 <link rel="stylesheet" type="text/css" href="stylesheet/magnific-popup.css">
@@ -185,6 +155,258 @@
     .plan #plan-cont #plan-hold:nth-child(4){margin-left:0px;}
     #about{height:40vh;}
  }
+
+/* Mobile menu styling - white background only */
+@media (max-width: 991px) {
+    #headernav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        z-index: 1000;
+    }
+    
+    #headernav.show {
+        max-height: 500px;
+        overflow-y: auto;
+    }
+    
+    #headernav .nav.navbar-nav.menu {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    #headernav .nav-item {
+        width: 100%;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    #headernav .nav-item:last-child {
+        border-bottom: none;
+    }
+    
+    #headernav .nav-link {
+        display: block;
+        padding: 15px 20px;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    
+    #headernav .nav-link:hover {
+        background-color: #f8f9fa;
+        color: #1572e8;
+    }
+    
+    #headernav .dropdown {
+        position: static;
+        display: block;
+        width: 100%;
+    }
+    
+    #headernav .dropdown-content {
+        position: static;
+        background: #f8f9fa;
+        box-shadow: none;
+        width: 100%;
+        min-width: auto;
+        display: none;
+    }
+    
+    #headernav .dropdown-content.show {
+        display: block;
+    }
+    
+    #headernav .dropdown-content a {
+        padding: 12px 20px 12px 35px;
+        color: #666;
+        border-bottom: 1px solid #e8e8e8;
+    }
+    
+    #headernav .dropdown-content a:hover {
+        background-color: #e9ecef;
+        color: #1572e8;
+    }
+    
+    #headernav .nav-log,
+    #headernav .nav-reg {
+        display: block;
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        height: auto;
+        padding: 0;
+        background: none;
+        border: none;
+    }
+    
+    #headernav .nav-log {
+        border-top: 1px solid #e0e0e0;
+    }
+    
+    #headernav .nav-log a,
+    #headernav .nav-reg a {
+        display: block;
+        padding: 15px 20px;
+        text-align: center;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    
+    #headernav .nav-log a:hover,
+    #headernav .nav-reg a:hover {
+        background-color: #f8f9fa;
+        color: #1572e8;
+    }
+    
+    #headernav .nav-reg {
+        background-color: #1572e8 !important;
+    }
+    
+    #headernav .nav-reg a {
+        color: #ffffff !important;
+    }
+    
+    #headernav .nav-reg a:hover {
+        background-color: #1fb9da !important;
+    }
+}
+
+/* Desktop navigation styles */
+@media (min-width: 992px) {
+    .navigation {
+        display: none !important;
+    }
+    
+    #headernav {
+        display: flex !important;
+        position: static;
+        background: none;
+        border: none;
+        box-shadow: none;
+        max-height: none;
+        overflow: visible;
+    }
+    
+    #headernav .nav.navbar-nav.menu {
+        flex-direction: row;
+        width: auto;
+        padding: 0;
+        margin: 0;
+    }
+    
+    #headernav .nav-item {
+        width: auto;
+        border-bottom: none;
+    }
+    
+    #headernav .nav-link {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    #headernav .nav-link:hover {
+        background: none;
+        color: #1572e8;
+    }
+    
+    #headernav .dropdown {
+        position: relative;
+        display: inline-block;
+        width: auto;
+    }
+    
+    #headernav .dropdown-content {
+        position: absolute;
+        background: #ffffff;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        width: 250px;
+        min-width: 250px;
+        display: none;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+    }
+    
+    #headernav .dropdown-content.show {
+        display: block;
+    }
+    
+    #headernav .dropdown-content a {
+        padding: 10px;
+        color: black;
+        border-bottom: none;
+        text-align: center;
+    }
+    
+    #headernav .dropdown-content a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    
+    #headernav .nav-log,
+    #headernav .nav-reg {
+        display: inline-block;
+        width: auto;
+        margin: 0;
+        border-radius: 5px;
+        height: 50px;
+        margin-top: 20px;
+        padding: 5px 10px 10px 10px;
+    }
+    
+    #headernav .nav-log {
+        border: solid 1px #1572e8;
+    }
+    
+    #headernav .nav-log a,
+    #headernav .nav-reg a {
+        display: inline-block;
+        padding: 0;
+        text-align: left;
+        color: #333;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 1.3rem;
+    }
+    
+    #headernav .nav-log a {
+        color: #1572e8;
+    }
+    
+    #headernav .nav-reg {
+        background-color: #1572e8;
+        margin-left: 10px;
+    }
+    
+    #headernav .nav-reg a {
+        color: rgba(255, 255, 255, 0.85);
+    }
+    
+    #headernav .nav-log a:hover,
+    #headernav .nav-reg a:hover {
+        background: none;
+        color: #1572e8;
+    }
+    
+    #headernav .nav-reg a:hover {
+        color: rgba(255, 255, 255, 0.85);
+    }
+}
 </style>
 <main>
 <section id="section">
@@ -208,6 +430,14 @@
 </div>
 </div>
 </div>
+</div>
+
+<!-- Navigation Arrows -->
+<div class="hero-nav-arrow hero-nav-prev" id="hero-prev">
+    <i class="fa fa-chevron-left"></i>
+</div>
+<div class="hero-nav-arrow hero-nav-next" id="hero-next">
+    <i class="fa fa-chevron-right"></i>
 </div>
 </div>
 
@@ -330,7 +560,7 @@ Advanced
 <span>Referral-commission</span> &nbsp;-&nbsp; <span>10%</span>
 </div>
 <div class="price__description-item text-center duru" id="duru-1" onclick="planActivator('#duration-1')">
-<span>Peofit Return</span> &nbsp;-&nbsp; <span id="changed_per1">10 Days <i class="fa fa-angle-down"></i></span>
+<span>Profit Return</span> &nbsp;-&nbsp; <span id="changed_per1">10 Days <i class="fa fa-angle-down"></i></span>
 </div>
 <div class="price__description-item text-center">
 <span>Capital Protection</span> &nbsp;-&nbsp; <span> <i class="ti-check-box"></i></span>
@@ -376,7 +606,7 @@ Competent
 <span>Referral-commission</span> &nbsp;-&nbsp; <span>10%</span>
 </div>
 <div class="price__description-item text-center duru" id="duru-1" onclick="planActivator('#duration-1')">
-<span>Peofit Return</span> &nbsp;-&nbsp; <span id="changed_per1">30 Days <i class="fa fa-angle-down"></i></span>
+<span>Profit Return</span> &nbsp;-&nbsp; <span id="changed_per1">30 Days <i class="fa fa-angle-down"></i></span>
 </div>
 <div class="price__description-item text-center">
 <span>Capital Protection</span> &nbsp;-&nbsp; <span> <i class="ti-check-box"></i></span>
@@ -422,7 +652,7 @@ Expert
 <span>Referral-commission</span> &nbsp;-&nbsp; <span>10%</span>
 </div>
 <div class="price__description-item text-center duru" id="duru-1" onclick="planActivator('#duration-1')">
-<span>Peofit Return</span> &nbsp;-&nbsp; <span id="changed_per1">60 Days <i class="fa fa-angle-down"></i></span>
+<span>Profit Return</span> &nbsp;-&nbsp; <span id="changed_per1">60 Days <i class="fa fa-angle-down"></i></span>
 </div>
 <div class="price__description-item text-center">
 <span>Capital Protection</span> &nbsp;-&nbsp; <span> <i class="ti-check-box"></i></span>
@@ -801,7 +1031,7 @@ We understand that recovering lost funds can be a difficult and time-consuming p
 <div class="row align-items-center">
 <div class="col-lg-6">
 <div class="footer__logo widthper text-center text-left-md">
-<img src="images/3.svg" alt="">
+<img src="images/wealthalliancelogoblack.svg" alt="">
 </div>
 </div>
 <div class="col-lg-6 text-center text-right-md">
@@ -833,9 +1063,6 @@ We understand that recovering lost funds can be a difficult and time-consuming p
 
 </body>
 
-<!-- Mirrored from wealthallianceinvestment.ltd/recovery by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Apr 2023 17:13:36 GMT -->
-
-<!-- Mirrored from wealthallianceinvestment.com/recovery.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Apr 2026 19:37:20 GMT -->
 </html>
 </footer>
 
