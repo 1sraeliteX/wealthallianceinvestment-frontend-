@@ -196,7 +196,7 @@
         border: 1px solid #e7e7e7 !important;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
         z-index: 999 !important;
-        overflow: hidden !important;
+        overflow: visible !important;
     }
     .header.navbar .navbar-toggler {
         display: block !important;
@@ -249,7 +249,7 @@
         margin: 0 !important;
         border-bottom: 1px solid #eeeeee !important;
         text-align: left !important;
-        overflow: hidden !important;
+        overflow: visible !important;
     }
     
     .header.navbar .navbar-nav .nav-item:last-child {
@@ -588,10 +588,9 @@
 </li>
 
 <li class="navigation__item">
-<button class="dropdown-btn">Services 
-    <i class="fa fa-caret-down"></i>
+<button onclick="myFunction()" class="dropbtn nav-link">Services  <i class="fa fa-caret-down"></i>
   </button>
-  <div class="dropdown-container">
+  <div id="myDropdown" class="dropdown-content">
      <a href="estate.html">Real Estate</a>
     <a href="gold.html">Gold Commodities</a>
     <a href="crypto.html">Crypto Currency</a>

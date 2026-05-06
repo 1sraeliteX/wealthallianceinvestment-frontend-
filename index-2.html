@@ -66,10 +66,9 @@
 </li>
 
 <li class="navigation__item">
-<button class="dropdown-btn">Services 
-    <i class="fa fa-caret-down"></i>
+<button onclick="myFunction()" class="dropbtn nav-link">Services  <i class="fa fa-caret-down"></i>
   </button>
-  <div class="dropdown-container">
+  <div id="myDropdown" class="dropdown-content">
      <a href="estate.html">Real Estate</a>
     <a href="gold.html">Gold Commodities</a>
     <a href="crypto.html">Crypto Currency</a>
@@ -1560,31 +1559,14 @@ background-repeat: no-repeat;">
 <script type="text/javascript">
 }
 </script>
-<script>
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
 
-// Close dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
+
 </body>
 
 
 
 </html>
-<!--Start of Tawk.to Script-->
+         <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
@@ -1662,7 +1644,25 @@ window.smartsupp||(function(d) {
   c.src='../www.smartsuppchat.com/loaderd41d.js?';s.parentNode.insertBefore(c,s);
 })(document);
 </script>
-<noscript> Powered by <a href=%e2%80%9chttps_/www.smartsupp.html target=“_blank”>Smartsupp</a></noscript>
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script><noscript> Powered by <a href=%e2%80%9chttps_/www.smartsupp.html target=“_blank”>Smartsupp</a></noscript>
 </body>
 
 

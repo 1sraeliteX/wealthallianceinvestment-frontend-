@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
         border: 1px solid #e0e0e0;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         max-height: 0;
-        overflow: hidden;
+        overflow: visible;
         transition: max-height 0.3s ease-in-out;
         z-index: 1000;
     }
@@ -1126,25 +1126,6 @@ We understand that recovering lost funds can be a difficult and time-consuming p
                 var x = document.getElementsByTagName('script')[0];
                 x.parentNode.insertBefore(s, x);
             </script>
-<script>
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
 </body>
 
 

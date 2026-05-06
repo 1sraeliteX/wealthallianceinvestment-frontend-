@@ -65,10 +65,9 @@
 </li>
 
 <li class="navigation__item">
-<button class="dropdown-btn">Services 
-    <i class="fa fa-caret-down"></i>
+<button onclick="myFunction()" class="dropbtn nav-link">Services  <i class="fa fa-caret-down"></i>
   </button>
-  <div class="dropdown-container">
+  <div id="myDropdown" class="dropdown-content">
      <a href="estate.html">Real Estate</a>
     <a href="gold.html">Gold Commodities</a>
     <a href="crypto.html">Crypto Currency</a>
@@ -846,12 +845,13 @@ Repaying a loan on time can help businesses build their credit score, which can 
                 var x = document.getElementsByTagName('script')[0];
                 x.parentNode.insertBefore(s, x);
             </script>
+</body>
 <script>
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// Close dropdown if the user clicks outside of it
+// Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -865,7 +865,6 @@ window.onclick = function(event) {
   }
 }
 </script>
-</body>
 
 
 </html>

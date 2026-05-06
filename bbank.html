@@ -65,10 +65,9 @@
 </li>
 
 <li class="navigation__item">
-<button class="dropdown-btn">Services 
-    <i class="fa fa-caret-down"></i>
+<button onclick="myFunction()" class="dropbtn nav-link">Services  <i class="fa fa-caret-down"></i>
   </button>
-  <div class="dropdown-container">
+  <div id="myDropdown" class="dropdown-content">
      <a href="estate.html">Real Estate</a>
     <a href="gold.html">Gold Commodities</a>
     <a href="crypto.html">Crypto Currency</a>
@@ -839,7 +838,9 @@ We have made means of payout to clients so easy with no hassle. You can easily c
                 x.parentNode.insertBefore(s, x);
             </script>
   
-  <script>
+  
+</body>
+<script>
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -858,9 +859,6 @@ window.onclick = function(event) {
   }
 }
 </script>
-  
-  
-</body>
 
 
 </html>
