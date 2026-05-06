@@ -27,7 +27,7 @@
 <meta name="apple-mobile-web-app-capable" content="Wealthallianceinvestment">
 
 <link rel="icon" type="image/svg+xml" href="images/wealthalliance (2).svg">
-<link rel="stylesheet" href="stylesheet/pincss.css">
+<link rel="stylesheet" href="css/pincss.css">
 <link href="stylesheet/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="stylesheet/aos.css">
 <link href="stylesheet/font-awesome.min.css" rel="stylesheet">
@@ -40,6 +40,7 @@
 <link rel="stylesheet" type="text/css" href="webfont/cryptocoins-colors.css">
 <link rel="stylesheet" href="stylesheet/simple-line-icons.css">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/collapsible-nav.css">
 
 </head>
 <body>
@@ -235,40 +236,89 @@
     display: none !important;
 }
 
-/* Show hamburger menu only on mobile/tablet */
-@media (max-width: 767px) {
-    /* Move Google Translator to center on mobile */
-    #google_translate_element {
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        right: auto !important;
-        z-index: 1001 !important;
-        margin: 0 !important;
-        align-items: center !important;
-    }
-    
-    /* Ensure navbar collapse is hidden by default on mobile */
+/* Desktop navigation - show on screens 768px and above */
+@media (min-width: 768px) {
     .header.navbar .navbar-collapse {
-        display: none !important;
-        visibility: hidden !important;
-    }
-    
-    .header.navbar .navbar-collapse.show {
         display: block !important;
         visibility: visible !important;
+    }
+    
+    .header.navbar .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .header.navbar .navbar-nav .nav-item {
+        margin: 0 8px !important;
+        position: relative !important;
+    }
+    
+    .header.navbar .navbar-nav .nav-link {
+        padding: 8px 15px !important;
+        font-size: 14px !important;
+        color: #333 !important;
+        text-decoration: none !important;
+        transition: color 0.3s ease !important;
+        white-space: nowrap !important;
+    }
+    
+    .header.navbar .navbar-nav .nav-link:hover {
+        color: #1572e8 !important;
+    }
+    
+    .header.navbar .navbar-nav .nav-item.dropdown .dropbtn {
+        background: none !important;
+        border: none !important;
+        color: #333 !important;
+        padding: 8px 15px !important;
+        cursor: pointer !important;
+        font-size: 14px !important;
+        transition: color 0.3s ease !important;
+    }
+    
+    .header.navbar .navbar-nav .nav-item.dropdown .dropbtn:hover {
+        color: #1572e8 !important;
+    }
+    
+    .dropdown-content {
+        display: none !important;
         position: absolute !important;
+        background-color: #fff !important;
+        min-width: 200px !important;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.2) !important;
+        z-index: 9999 !important;
+        border: 1px solid #ddd !important;
+        border-radius: 4px !important;
         top: 100% !important;
         left: 0 !important;
-        right: 0 !important;
-        background: #ffffff !important;
-        border: 1px solid #e7e7e7 !important;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
-        z-index: 999 !important;
-        overflow: visible !important;
     }
-    .header.navbar .navbar-toggler {
+    
+    .dropdown-content.show {
+        display: block !important;
+    }
+    
+    .dropdown-content a {
+        color: #333 !important;
+        padding: 12px 16px !important;
+        text-decoration: none !important;
+        display: block !important;
+        transition: background-color 0.3s ease !important;
+    }
+    
+    .dropdown-content a:hover {
+        background-color: #f1f1f1 !important;
+    }
+}
+
+
+/* Show hamburger menu only on mobile/tablet */
+@media (max-width: 767px) {
+    /* Show hamburger menu on mobile */
+    .navbar-toggler {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
@@ -281,18 +331,6 @@
         width: 50px !important;
         height: 50px !important;
         border-radius: 5px !important;
-    }
-    
-    .header.navbar .navbar-toggler:focus {
-        outline: none !important;
-        box-shadow: none !important;
-    }
-    
-    .header.navbar .navbar-toggler .lnr {
-        font-size: 28px !important;
-        color: #333 !important;
-        display: block !important;
-        line-height: 1 !important;
     }
     
     /* Hide desktop navigation on mobile */
@@ -312,6 +350,7 @@
         border: 1px solid #e7e7e7 !important;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
         z-index: 999 !important;
+        overflow: visible !important;
     }
     
     .header.navbar .navbar-nav {
@@ -402,28 +441,83 @@
         background: #e9ecef !important;
         color: #1572e8 !important;
     }
-}
+    
+    /* Move Google Translator to center on mobile */
+    #google_translate_element {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        right: auto !important;
+        z-index: 1001 !important;
+        margin: 0 !important;
+        align-items: center !important;
+    }
+    
+        .header.navbar .navbar-toggler {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        border: 2px solid #333 !important;
+        background: #fff !important;
+        padding: 10px !important;
+        cursor: pointer !important;
+        z-index: 9999 !important;
+        position: relative !important;
+        width: 50px !important;
+        height: 50px !important;
+        border-radius: 5px !important;
+    }
+    
+    .header.navbar .navbar-toggler:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    
+    .header.navbar .navbar-toggler .lnr {
+        font-size: 28px !important;
+        color: #333 !important;
+        display: block !important;
+        line-height: 1 !important;
+    }
+    
+    /* Hamburger icon styling */
+    .hamburger-icon {
+        display: inline-block;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hamburger-line {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #333;
+        margin: 3px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+    
+    /* Hamburger animation when active */
+    .navbar-toggler.active .hamburger-line:nth-child(1) {
+        transform: rotate(-45deg) translate(-6px, 6px);
+    }
+    
+    .navbar-toggler.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .navbar-toggler.active .hamburger-line:nth-child(3) {
+        transform: rotate(45deg) translate(-6px, -6px);
+    }
+    
+    }
 
-.header.navbar .navbar-collapse {
-    display: block !important;
-}
-
-.header.navbar .navbar-nav {
-    display: flex !important;
-    align-items: center !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.header.navbar .navbar-nav .nav-item {
-    margin: 0 5px !important;
-}
-
-.header.navbar .navbar-nav .nav-link {
-    padding: 8px 12px !important;
-    font-size: 14px !important;
-    white-space: nowrap !important;
-}
 
 /* Google translator positioning */
 #google_translate_element {
@@ -507,56 +601,6 @@
         display: block !important;
         line-height: 1 !important;
     }
-    
-    /* Navigation menu when collapsed */
-    .navbar-nav.menu {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 0;
-        width: 100%;
-    }
-    
-    .nav-item {
-        width: 100%;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .nav-item:last-child {
-        border-bottom: none;
-    }
-    
-    .nav-link {
-        display: block;
-        padding: 12px 15px !important;
-        width: 100%;
-        color: #333 !important;
-    }
-    
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        border: none;
-        background-color: #f8f9fa;
-        width: 100%;
-        border-radius: 0;
-    }
-    
-    .dropdown-content a {
-        padding: 10px 25px;
-        border-bottom: 1px solid #eee;
-    }
-    
-    /* Remove conflicting flex properties on mobile */
-    .header.navbar .navbar-collapse {
-        flex-grow: 0;
-        width: 100%;
-    }
-    
-    .header.navbar .navbar-nav {
-        flex-grow: 0;
-        justify-content: flex-start;
-        margin: 0;
-    }
 }
 
 @media (max-width: 576px) {
@@ -596,48 +640,40 @@
         <span class="hamburger-line"></span>
     </span>
 </button>
-<div class="navbar-collapse" id="headernav">
-<ul class="nav navbar-nav menu">
-<li class="nav-item">
-<a class="nav-link" href="index.html" id="active">Home</a>
-</li>
-<li class="nav-item">
-<a class="nav-link " href="about.html">About us</a>
-</li>
-<li class="nav-item dropdown">
-<button onclick="myFunction()" class="dropbtn nav-link">Services  <i class="fa fa-caret-down"></i></button>
-<div id="myDropdown" class="dropdown-content">
-    <a href="estate.html">Real Estate</a>
-    <a href="gold.html">Gold Commodities</a>
-    <a href="crypto.html">Crypto Currency</a>
-    <a href="cannabis.html">Cannabis</a>
-    <a href="stock.html">Stock and EFTs</a>
-    <a href="agriculture.html">Agriculture</a>
-    <a href="loan.html">Loan Offers</a>
-    <a href="landlord.html">Landlord Properties</a>
-    <a href="insurance.html">Car Insurance Company & Benz investment</a>
-     <a href="recovery.html">Fund Recovery</a>
-      <a href="cards.html">Gift Card & Amazon Card Investment</a>
-       <a href="bbank.html">Big Bank Energy Investment</a>
-       
-  </div>
-</li>
-
-<li class="nav-item">
-<a class="nav-link " href="contact.html">Contact Us</a>
-</li>
-<li class="nav-item">
-<a class="nav-link " href="faqs.html">FAQs</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" href="https://wealthallianceinvestments.com/login">Login</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="https://wealthallianceinvestments.com/register">Sign up</a>
-</li>
-</ul>
-</div>
+<nav class="navbar-collapse collapse" id="headernav">
+    <ul class="navbar-nav menu">
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+        </li>
+        <li class="nav-item dropdown">
+            <button class="dropbtn" onclick="myFunction()">Services</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="crypto.html">Cryptocurrency</a>
+                <a href="estate.html">Real Estate</a>
+                <a href="stock.html">Stock Trading</a>
+                <a href="gold.html">Gold Investment</a>
+                <a href="loan.html">Loan Services</a>
+                <a href="agriculture.html">Agriculture</a>
+                <a href="cannabis.html">Medical Cannabis</a>
+                <a href="landlord.html">Landlord Properties</a>
+                <a href="recovery.html">Fund Recovery</a>
+                <a href="insurance.html">Insurance</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="faqs.html">FAQs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://app.wealthallianceinvestments.com/register">Account</a>
+        </li>
+    </ul>
+</nav>
 </div>
 <!--// translator-->
 <div id="google_translate_element"></div>
@@ -693,6 +729,41 @@ window.onclick = function(event) {
     }
   }
 }
+
+// Hamburger menu toggle functionality
+document.getElementById('hamburger-toggle').addEventListener('click', function() {
+  var navbarCollapse = document.getElementById('headernav');
+  navbarCollapse.classList.toggle('show');
+  
+  // Toggle hamburger icon animation
+  this.classList.toggle('active');
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+  var navbar = document.getElementById('main-navbar');
+  var navbarCollapse = document.getElementById('headernav');
+  var hamburgerToggle = document.getElementById('hamburger-toggle');
+  
+  if (!navbar.contains(event.target) && navbarCollapse.classList.contains('show')) {
+    navbarCollapse.classList.remove('show');
+    hamburgerToggle.classList.remove('active');
+  }
+});
+
+// Close mobile menu when clicking on a nav link
+var navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(function(link) {
+  link.addEventListener('click', function() {
+    var navbarCollapse = document.getElementById('headernav');
+    var hamburgerToggle = document.getElementById('hamburger-toggle');
+    
+    if (window.innerWidth <= 767) {
+      navbarCollapse.classList.remove('show');
+      hamburgerToggle.classList.remove('active');
+    }
+  });
+});
 </script><title>Home | Wealthallianceinvestment investment firm </title>
 <link rel="stylesheet" type="text/css" href="stylesheet/home.css">
 
@@ -2489,6 +2560,7 @@ window.smartsupp||(function(d) {
 </div>
 
 <script src="java/home.js"></script>
+<script src="js/collapsible-nav.js"></script>
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
