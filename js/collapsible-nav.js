@@ -152,17 +152,17 @@ class CollapsibleNav {
                     <div class="collapsible-inner">
                         <ul class="collapsible-nav-list">
                             <li>
-                                <a href="https://wealthallianceinvestments.com/login">
+                                <a href="https://app.wealthallianceinvestments.com/login">
                                     <span>👤</span> Login
                                 </a>
                             </li>
                             <li>
-                                <a href="https://wealthallianceinvestments.com/register">
+                                <a href="https://app.wealthallianceinvestments.com/register">
                                     <span>✏️</span> Sign Up
                                 </a>
                             </li>
                         </ul>
-                        <button class="collapsible-learn-more" onclick="window.location.href='https://wealthallianceinvestments.com/register'">
+                        <button class="collapsible-learn-more" onclick="window.location.href='https://app.wealthallianceinvestments.com/register'">
                             Get Started
                         </button>
                     </div>
